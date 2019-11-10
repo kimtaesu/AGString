@@ -50,30 +50,18 @@ script:
   - xcodebuild -version
   - xcodebuild -showsdks
   
-  - echo "TRAVIS_XCODE_PROJECT ${TRAVIS_XCODE_PROJECT}"
-  # - xcodebuild clean -project "${TRAVIS_XCODE_PROJECT}" -scheme "${SCHEME}" | xcpretty
+  - xcodebuild clean -project "${TRAVIS_XCODE_PROJECT}" -scheme "${SCHEME}" | xcpretty
 
   # Build Framework in Debug and Run Tests if specified
   
   - echo "BUILD FOR DEBUG"
-  # - if [ ${RUN_TESTS} == "YES" ]; then
-  #     xcodebuild -project "${TRAVIS_XCODE_PROJECT}" -scheme "${SCHEME}" -sdk "${SDK}" -destination "${DESTINATION}" -configuration Debug ONLY_ACTIVE_ARCH=NO ENABLE_TESTABILITY=YES test | xcpretty;
-  #   else
-  #     xcodebuild -project "${TRAVIS_XCODE_PROJECT}" -scheme "${SCHEME}" -sdk "${SDK}" -destination "${DESTINATION}" -configuration Debug ONLY_ACTIVE_ARCH=NO build | xcpretty;
-  #   fi
+  - if [ ${RUN_TESTS} == "YES" ]; then
+      xcodebuild -project "${TRAVIS_XCODE_PROJECT}" -scheme "${SCHEME}" -sdk "${SDK}" -destination "${DESTINATION}" -configuration Debug ONLY_ACTIVE_ARCH=NO ENABLE_TESTABILITY=YES test | xcpretty;
+    else
+      xcodebuild -project "${TRAVIS_XCODE_PROJECT}" -scheme "${SCHEME}" -sdk "${SDK}" -destination "${DESTINATION}" -configuration Debug ONLY_ACTIVE_ARCH=NO build | xcpretty;
+    fi
 
-  # - xcodebuild clean -project "$TRAVIS_XCODE_PROJECT" -scheme "$SCHEME" | xcpretty
-
-  # Build Framework in Release and Run Tests if specified
-  - echo "BUILD FOR RELEASE"
-
-  - echo "SDK ${SDK}"
-  - echo "DESTINATION ${DESTINATION}"
-  # - if [ ${RUN_TESTS} == "YES" ]; then
-  #     xcodebuild -project "${TRAVIS_XCODE_PROJECT}" -scheme "${SCHEME}" -sdk "${SDK}" -destination "${DESTINATION}" -configuration Release ONLY_ACTIVE_ARCH=NO ENABLE_TESTABILITY=YES test | xcpretty;
-  #   else
-  #     xcodebuild -project "${TRAVIS_XCODE_PROJECT}" -scheme "${SCHEME}" -sdk "${SDK}" -destination "${DESTINATION}" -configuration Release ONLY_ACTIVE_ARCH=NO build | xcpretty;
-  #   fi
+  - xcodebuild clean -project "$TRAVIS_XCODE_PROJECT" -scheme "$SCHEME" | xcpretty
 
   # # Run `pod lib lint` if specified
   # - if [ $POD_LINT == "YES" ] && [ "$TRAVIS_PULL_REQUEST" != "false" ]; then
