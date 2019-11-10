@@ -71,3 +71,7 @@ script:
   #     travis_wait 60 pod lib lint --allow-warnings;
   #   fi
 
+notifications:
+  slack:
+    rooms:
+    - swiftalgorithmclub:rJxmAKJgpZNBKR2ogwcHbtGu#agstring
