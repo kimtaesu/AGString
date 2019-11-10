@@ -29,7 +29,7 @@ before_script:
   - case "${PLATFORM}" in
       "iOS")
         export SDK="iphonesimulator13.2";
-        export DESTINATION="platformplatform=iOS Simulator,OS=13.2,name=iPhone 8";
+        export DESTINATION="platform=iOS Simulator,OS=13.2,name=iPhone 8";
         ;;
       "macOS")
         export SDK="macosx10.15";
