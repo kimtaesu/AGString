@@ -27,24 +27,24 @@ before_script:
   - echo "TRAVIS_XCODE_SCHEME ${TRAVIS_XCODE_SCHEME} PLATFORM ${PLATFORM}"
 
   - case "${PLATFORM}" in
-    "iOS")
-      export SDK="iphonesimulator13.2";
-      export DESTINATION="platformplatform=iOS Simulator,OS=13.2,name=iPhone 8";
-      ;;
-    "macOS")
-      export SDK="macosx10.15";
-      export DESTINATION="platform=macOS,arch=x86_64";
-      ;;
-    "tvOS")
-      export SDK="appletvsimulator13.2";
-      export DESTINATION="platform=tvOS Simulator,OS=13.2,name=Apple TV";
-      ;;
-    "watchOS")
-      export SDK="watchsimulator6.1";
-      export DESTINATION="platform=watchOS Simulator,OS=6.1,name=Apple Watch Series 5 - 44mm";
-      ;;
-  esac
-
+      "iOS")
+        export SDK="iphonesimulator13.2";
+        export DESTINATION="platformplatform=iOS Simulator,OS=13.2,name=iPhone 8";
+        ;;
+      "macOS")
+        export SDK="macosx10.15";
+        export DESTINATION="platform=macOS,arch=x86_64";
+        ;;
+      "tvOS")
+        export SDK="appletvsimulator13.2";
+        export DESTINATION="platform=tvOS Simulator,OS=13.2,name=Apple TV";
+        ;;
+      "watchOS")
+        export SDK="watchsimulator6.1";
+        export DESTINATION="platform=watchOS Simulator,OS=6.1,name=Apple Watch Series 5 - 44mm";
+        export RUN_TESTS="NO";
+        ;;
+    esac
 script:
   - set -o pipefail 
   - xcodebuild -version
