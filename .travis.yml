@@ -29,7 +29,7 @@ before_script:
   - case "${PLATFORM}" in
       "iOS")
         export SDK="iphonesimulator13.2";
-        export DESTINATION="platformplatform=iOS Simulator,OS=13.2,name=iPhone 8";
+        export DESTINATION="platform=iOS Simulator,OS=13.2,name=iPhone 8";
         ;;
       "macOS")
         export SDK="macosx10.15";
@@ -56,7 +56,6 @@ script:
   # Build Framework in Debug and Run Tests if specified
 
    
-  - echo "project: ${TRAVIS_XCODE_PROJECT} scheme: ${SCHEME} sdk: ${SDK} destination: ${DESTINATION}"
   - echo "BUILD FOR DEBUG"
   - if [ ${RUN_TESTS} == "YES" ]; then
       xcodebuild -project "${TRAVIS_XCODE_PROJECT}" -scheme "${SCHEME}" -sdk "${SDK}" -destination "${DESTINATION}" -configuration Debug ONLY_ACTIVE_ARCH=NO ENABLE_TESTABILITY=YES test | xcpretty;
