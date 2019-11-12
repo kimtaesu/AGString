@@ -72,6 +72,8 @@ script:
   #   fi
 
 after_success:
+  - echo "TRAVIS_BUILD_DIR ${TRAVIS_BUILD_DIR}"
+  - cd ${TRAVIS_BUILD_DIR}
   - bash <(curl -s https://codecov.io/bash) -t "$CODE_COV_TOKEN"
   
 notifications:
