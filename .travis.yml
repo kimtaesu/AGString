@@ -20,7 +20,7 @@ addons:
 sonarcloud:
   organization: "swiftalgorithmclub"
   token:
-    secure: "77b57cb5a16e756fa098f0ba9d3e0c72186cfa2b" # encrypted value of your token
+    secure: $SONAR_TOKEN # encrypted value of your token
 
 env:
   - CACHE_NAME=iOS       PLATFORM=iOS
