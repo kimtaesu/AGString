@@ -17,10 +17,10 @@ xcode_scheme:
 dist: trusty
 
 addons:
-sonarcloud:
-  organization: "swiftalgorithmclub"
-  token:
-    secure: $SONAR_TOKEN # encrypted value of your token
+  sonarcloud:
+    organization: "swiftalgorithmclub"
+    token:
+      secure: $SONAR_TOKEN # encrypted value of your token
 
 env:
   - CACHE_NAME=iOS       PLATFORM=iOS
