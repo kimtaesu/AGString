@@ -53,18 +53,21 @@ script:
   - set -o pipefail
   - xcodebuild -version
   - xcodebuild -showsdks
+  
+
+  - xcodebuild clean -project "${TRAVIS_XCODE_PROJECT}" -scheme "${SCHEME}" | xcpretty
 
   # Build Framework in Debug and Run Tests if specified
 
    
   - echo "BUILD FOR DEBUG"
   - if [ ${RUN_TESTS} == "YES" ]; then
-      xcodebuild -project "${TRAVIS_XCODE_PROJECT}" -scheme "${SCHEME}" -sdk "${SDK}" -destination "${DESTINATION}" -configuration Debug ONLY_ACTIVE_ARCH=NO ENABLE_TESTABILITY=YES test | xcpretty;
+      xcodebuild -project "${TRAVIS_XCODE_PROJECT}" -derivedDataPath Build/ -scheme "${SCHEME}" -sdk "${SDK}" -destination "${DESTINATION}" -configuration Debug ONLY_ACTIVE_ARCH=NO ENABLE_TESTABILITY=YES test | xcpretty;
     else
       xcodebuild -project "${TRAVIS_XCODE_PROJECT}" -scheme "${SCHEME}" -sdk "${SDK}" -destination "${DESTINATION}" -configuration Debug ONLY_ACTIVE_ARCH=NO build | xcpretty;
     fi
 
-  - bash <(curl -s https://codecov.io/bash)
+  - xcodebuild clean -project "$TRAVIS_XCODE_PROJECT" -scheme "$SCHEME" | xcpretty
 
   # # Run `pod lib lint` if specified
   # - if [ $POD_LINT == "YES" ] && [ "$TRAVIS_PULL_REQUEST" != "false" ]; then
