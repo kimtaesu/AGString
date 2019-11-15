@@ -25,6 +25,7 @@
 		2FBE39FC2377C7C600D65251 /* String+NSRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6C86D12372D77B004C83A0 /* String+NSRange.swift */; };
 		2FBE39FD2377C7C600D65251 /* StringIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5EFC82236EF301005134D1 /* StringIndex.swift */; };
 		2FBE39FE2377C7C600D65251 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4F190B236F126000A0CD30 /* Utility.swift */; };
+		2FEF5D65237EF41E0001F0DC /* .codecov.yml in Resources */ = {isa = PBXBuildFile; fileRef = 2FEF5D64237EF41E0001F0DC /* .codecov.yml */; };
 		3D9C42A222745900000A6585 /* AGString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9C42A122745900000A6585 /* AGString.swift */; };
 		3D9C42B1227459C1000A6585 /* AGString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9C42A122745900000A6585 /* AGString.swift */; };
 		3D9C42BF227459F6000A6585 /* AGString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9C42A122745900000A6585 /* AGString.swift */; };
@@ -111,6 +112,7 @@
 /* Begin PBXFileReference section */
 		2F6581C02377FA9200C5004C /* AGString.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = AGString.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		2FD35AE52377FD0E00D0B4F1 /* AGRegex.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = AGRegex.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		2FEF5D64237EF41E0001F0DC /* .codecov.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .codecov.yml; sourceTree = SOURCE_ROOT; };
 		3D9C429022745894000A6585 /* AGString.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AGString.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D9C429C227458E8000A6585 /* AGString.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AGString.plist; sourceTree = "<group>"; };
 		3D9C429D227458E8000A6585 /* AGStringTests.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AGStringTests.plist; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 				3D9C42D222745B48000A6585 /* LICENSE */,
 				3D9C42D522745B48000A6585 /* README.md */,
 				3D9C42DB22745DB0000A6585 /* .gitignore */,
+				2FEF5D64237EF41E0001F0DC /* .codecov.yml */,
 				3D9C42D822745DAF000A6585 /* .jazzy.yaml */,
 				3D9C42D922745DAF000A6585 /* .swiftlint.yml */,
 				3DB91AC4229AC263002668DA /* .travis.yml */,
@@ -573,6 +576,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FEF5D65237EF41E0001F0DC /* .codecov.yml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

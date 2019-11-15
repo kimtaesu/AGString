@@ -24,9 +24,9 @@ addons:
 
 env:
   - CACHE_NAME=iOS       PLATFORM=iOS
-  - CACHE_NAME=macOS     PLATFORM=macOS
-  - CACHE_NAME=tvOS      PLATFORM=tvOS
-  - CACHE_NAME=watchOS   PLATFORM=watchOS
+#  - CACHE_NAME=macOS     PLATFORM=macOS
+#  - CACHE_NAME=tvOS      PLATFORM=tvOS
+#  - CACHE_NAME=watchOS   PLATFORM=watchOS
 
 install:
 - pip install codecov
@@ -77,13 +77,18 @@ script:
   - xcodebuild clean -project "$TRAVIS_XCODE_PROJECT" -scheme "$SCHEME" | xcpretty
   - sonar-scanner
   
+  - if [ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_PULL_REQUEST" != "false" ]; then
+      echo "podlint ${TRAVIS_BRANCH}"
+      pod repo update > /dev/null;
+      travis_wait 60 pod lib lint --allow-warnings;
+    fi
   # # Run `pod lib lint` if specified
   # - if [ $POD_LINT == "YES" ] && [ "$TRAVIS_PULL_REQUEST" != "false" ]; then
   #     pod repo update > /dev/null;
   #     travis_wait 60 pod lib lint --allow-warnings;
   #   fi
 
-  
+    
 after_success:
   - codecov
   
