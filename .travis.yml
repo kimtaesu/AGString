@@ -76,10 +76,10 @@ script:
 #
 #  - xcodebuild clean -project "$TRAVIS_XCODE_PROJECT" -scheme "$SCHEME" | xcpretty
 #  - sonar-scanner
-  
-  - echo "TRAVIS_BRANCH ${TRAVIS_BRANCH} TRAVIS_PULL_REQUEST ${TRAVIS_PULL_REQUEST}"
-  
+  - echo "Get Version"
+  - git describe --abbrev=0 --tags
   - if [ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
+      echo "!!!!!!!!!!! aaa"
       pod repo update > /dev/null;
       travis_wait 60 pod lib lint --allow-warnings;
     fi
