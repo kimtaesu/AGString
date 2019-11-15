@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2F217148237F03BA0072FF4C /* Template.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 2F217147237F03BA0072FF4C /* Template.podspec */; };
+		2F217148237F03BA0072FF4C /* TemplatePodSpec in Resources */ = {isa = PBXBuildFile; fileRef = 2F217147237F03BA0072FF4C /* TemplatePodSpec */; };
 		2FBE39ED2377C7B700D65251 /* AGRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB3A5A1236EF1B30041D167 /* AGRegex.swift */; };
 		2FBE39EE2377C7B700D65251 /* AGMatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD02777323701C86007DCFB6 /* AGMatch.swift */; };
 		2FBE39EF2377C7B700D65251 /* AGMatchListIterator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDA016123703F820001AF7C /* AGMatchListIterator.swift */; };
@@ -111,7 +111,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		2F217147237F03BA0072FF4C /* Template.podspec */ = {isa = PBXFileReference; lastKnownFileType = file; path = Template.podspec; sourceTree = SOURCE_ROOT; };
+		2F217147237F03BA0072FF4C /* TemplatePodSpec */ = {isa = PBXFileReference; lastKnownFileType = text; path = TemplatePodSpec; sourceTree = SOURCE_ROOT; };
 		2F6581C02377FA9200C5004C /* AGString.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = AGString.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		2FD35AE52377FD0E00D0B4F1 /* AGRegex.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = AGRegex.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		2FEF5D64237EF41E0001F0DC /* .codecov.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .codecov.yml; sourceTree = SOURCE_ROOT; };
@@ -249,7 +249,7 @@
 		3D9C429B227458E8000A6585 /* Configs */ = {
 			isa = PBXGroup;
 			children = (
-				2F217147237F03BA0072FF4C /* Template.podspec */,
+				2F217147237F03BA0072FF4C /* TemplatePodSpec */,
 				3D9C429C227458E8000A6585 /* AGString.plist */,
 				3D9C429D227458E8000A6585 /* AGStringTests.plist */,
 				3D9C42D422745B48000A6585 /* AGString.podspec */,
@@ -579,7 +579,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2F217148237F03BA0072FF4C /* Template.podspec in Resources */,
+				2F217148237F03BA0072FF4C /* TemplatePodSpec in Resources */,
 				2FEF5D65237EF41E0001F0DC /* .codecov.yml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -80,12 +80,19 @@ script:
   - export TAG_VERSION=$(git describe --abbrev=0 --tags)
   - export NEW_TAG_VERSION=$(echo ${TAG_VERSION} | awk -F. -v OFS=. 'NF==1{print ++$NF}; NF>1{if(length($NF+1)>length($NF))$(NF-1)++; $NF=sprintf("%0*d", length($NF), ($NF+1)%(10^length($NF))); print}')
   
-  - sed -e "s/\${version}/${NEW_TAG_VERSION}/" Template.podspec > AGString.podspec
+  - sed -e "s/\${version}/${NEW_TAG_VERSION}/" TemplatePodSpec > AGString.podspec
+
 
   - if [ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
+      
+      git tag -m "[Cron] Update podspec" $NEW_TAG_VERSION
+      git push --tags
+      
       echo "!!!!!!!!!!! aaa"
       pod repo update > /dev/null;
       travis_wait 60 pod lib lint --allow-warnings;
+      
+      pod trunk push AGString.podspec
     fi
   # # Run `pod lib lint` if specified
   # - if [ $POD_LINT == "YES" ] && [ "$TRAVIS_PULL_REQUEST" != "false" ]; then
