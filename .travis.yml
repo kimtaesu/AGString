@@ -62,20 +62,22 @@ script:
   - xcodebuild -showsdks
   
 
-  - xcodebuild clean -project "${TRAVIS_XCODE_PROJECT}" -scheme "${SCHEME}" | xcpretty
+#  - xcodebuild clean -project "${TRAVIS_XCODE_PROJECT}" -scheme "${SCHEME}" | xcpretty
 
   # Build Framework in Debug and Run Tests if specified
 
    
-  - echo "BUILD FOR DEBUG"
-  - if [ ${RUN_TESTS} == "YES" ]; then
-      xcodebuild -project "${TRAVIS_XCODE_PROJECT}" -derivedDataPath Build/ -scheme "${SCHEME}" -sdk "${SDK}" -destination "${DESTINATION}" -configuration Debug ONLY_ACTIVE_ARCH=NO ENABLE_TESTABILITY=YES test | xcpretty;
-    else
-      xcodebuild -project "${TRAVIS_XCODE_PROJECT}" -scheme "${SCHEME}" -sdk "${SDK}" -destination "${DESTINATION}" -configuration Debug ONLY_ACTIVE_ARCH=NO build | xcpretty;
-    fi
-
-  - xcodebuild clean -project "$TRAVIS_XCODE_PROJECT" -scheme "$SCHEME" | xcpretty
-  - sonar-scanner
+#  - echo "BUILD FOR DEBUG"
+#  - if [ ${RUN_TESTS} == "YES" ]; then
+#      xcodebuild -project "${TRAVIS_XCODE_PROJECT}" -derivedDataPath Build/ -scheme "${SCHEME}" -sdk "${SDK}" -destination "${DESTINATION}" -configuration Debug ONLY_ACTIVE_ARCH=NO ENABLE_TESTABILITY=YES test | xcpretty;
+#    else
+#      xcodebuild -project "${TRAVIS_XCODE_PROJECT}" -scheme "${SCHEME}" -sdk "${SDK}" -destination "${DESTINATION}" -configuration Debug ONLY_ACTIVE_ARCH=NO build | xcpretty;
+#    fi
+#
+#  - xcodebuild clean -project "$TRAVIS_XCODE_PROJECT" -scheme "$SCHEME" | xcpretty
+#  - sonar-scanner
+  
+  - echo "TRAVIS_BRANCH ${TRAVIS_BRANCH} TRAVIS_PULL_REQUEST ${TRAVIS_PULL_REQUEST}"
   
   - if [ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_PULL_REQUEST" != "false" ]; then
       echo "podlint ${TRAVIS_BRANCH}"
@@ -89,10 +91,10 @@ script:
   #   fi
 
     
-after_success:
-  - codecov
+#after_success:
+#  - codecov
   
-notifications:
-  slack:
-    rooms:
-    - swiftalgorithmclub:rJxmAKJgpZNBKR2ogwcHbtGu#agstring
+#notifications:
+#  slack:
+#    rooms:
+#    - swiftalgorithmclub:rJxmAKJgpZNBKR2ogwcHbtGu#agstring
