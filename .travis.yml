@@ -79,8 +79,7 @@ script:
   
   - echo "TRAVIS_BRANCH ${TRAVIS_BRANCH} TRAVIS_PULL_REQUEST ${TRAVIS_PULL_REQUEST}"
   
-  - if [ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_PULL_REQUEST" != "false" ]; then
-      echo "podlint ${TRAVIS_BRANCH}"
+  - if [ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
       pod repo update > /dev/null;
       travis_wait 60 pod lib lint --allow-warnings;
     fi
